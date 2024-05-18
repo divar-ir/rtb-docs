@@ -164,7 +164,7 @@ message Context {
 - تناظر آی‌دی شهر به نام شهر در [این آدرس](https://api.divar.ir/v8/places/cities) قابل مشاهده است.
 - دیتای کتگوری‌های دیوار در [این آدرس](https://api.divar.ir/v8/categories)  قابل مشاهده است.
 - دیتای محله‌های دیوار در آدرس https://api.divar.ir/v8/places/cities/<CITY\_ID>/geojson (<CITY\_ID> آی‌دی شهر می‌باشد) قابل مشاهده است.
-- لیست برند‌های خودرو از در [این آدرس]() قابل مشاهده است.
+- لیست برند‌های خودرو از در [این آدرس](https://github.com/divar-ir/rtb-docs/blob/main/brand_models_map.json) قابل مشاهده است.
 
 این دیتا به ندرت تغییر می‌کند و می‌توانید یک کپی از آن ذخیره کنید.
 
