@@ -111,9 +111,34 @@ message Context {
                 "value": "Pride 141 i"
               },
               {
-                id="filter-neighborhood",
+                "id": "filter-neighborhood",
                 "name": "neighborhood filter",
                 "value": "907"
+              },
+              {
+                "id": "filter-price-min",
+                "name": "price min filter",
+                "value": "100000000"
+              },
+              {
+                "id": "filter-price-max",
+                "name": "price max filter",
+                "value": "150000000"
+              },
+              {
+                "id": "filter-poduction-year-min",
+                "name": "production year min filter",
+                "value": "1399"
+              },
+              {
+                "id": "filter-production-year-max",
+                "name": "proudction year max filter",
+                "value": "1403"
+              },
+              {                                                                                                                            
+                "id": "filter-status",                                                                                                     
+                "name": "status filter",
+                "value": "new"
               }
             ]
           }
@@ -125,10 +150,21 @@ message Context {
 ```
 <div dir="rtl">
 
+- لیست فیلتر‌ها:
+    - filter-city فیلتر شهر
+    - search-query کوئری جست و جو شده
+    - filter-category کتگوری انتخاب شده
+    - brand-models برند انتخاب شده
+    - filter-neighborhood محله انتخاب شده
+    - filter-price-min حداقل قیمت انتخاب شده
+    - filter-price-max حداکثر قیمت انتخاب شده
+    - filter-poduction-year-min حداقل سال تولید
+    - filter-production-year-max حداکثر سال تولید
+    - filter-status وضعیت کالا (دارای مقادیر new, like-new, used, repair-needed)
 - تناظر آی‌دی شهر به نام شهر در [این آدرس](https://api.divar.ir/v8/places/cities) قابل مشاهده است.
 - دیتای کتگوری‌های دیوار در [این آدرس](https://api.divar.ir/v8/categories)  قابل مشاهده است.
-- دیتای محله‌های دیوار در [این آدرس](https://api.divar.ir/v8/places/cities/<CITY\_ID>/geojson) قابل مشاهده است.
-- لیست برن‌های خودرو از در [این آدرس]() قابل مشاهده است.
+- دیتای محله‌های دیوار در آدرس https://api.divar.ir/v8/places/cities/<CITY\_ID>/geojson (<CITY\_ID> آی‌دی شهر می‌باشد) قابل مشاهده است.
+- لیست برند‌های خودرو از در [این آدرس]() قابل مشاهده است.
 
 این دیتا به ندرت تغییر می‌کند و می‌توانید یک کپی از آن ذخیره کنید.
 
