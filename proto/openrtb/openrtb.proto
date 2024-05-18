@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+package openrtb.v3;
+
+import "adcom/v1/context/context.proto";
+import "adcom/v1/media/media.proto";
+import "adcom/v1/placement/placement.proto";
+
+
+message Request {
+  // Unique ID of the bid request; provided by the exchange.
+  // Required by the OpenRTB specification.
+  string id = 1;
+
+  // Array of Item objects (at least one) that constitute the set of goods being offered for sale.
+  // Required by the OpenRTB specification.
+  repeated Item item = 10;
+
+  // Layer-4 domain object structure that provides context for the items being offered .
+  // Recommended by the OpenRTB specification.
+  Context context = 12;
+}
+
+message Item {
+  // A unique identifier for this item within the context of the offer (typically starts with “1” and increments).
+  // Required by the OpenRTB specification.
+  string id = 1;
+
+  // Minimum bid price for this item expressed in CPM.
+  double flr = 5;
+
+  // Layer-4 domain object structure that provides specifies the item being offered.
+  // Recommended by the OpenRTB specification.
+  adcom.v1.placement.Placement spec = 13;
+}
+
+message Context {
+  adcom.v1.context.DistributionChannel app = 1;
+  adcom.v1.context.DistributionChannel site = 2;
+  adcom.v1.context.User user = 3;
+  adcom.v1.context.Device device = 4;
+}
+
+message Response {
+  // ID of the bid request to which this is a response; must match the request.id attribute.
+  // Required by the OpenRTB specification.
+  string id = 1;
+
+  // Bidder generated response ID to assist with logging/tracking.
+  string bidid = 2;
+
+  // Array of Seatbid objects; 1+ required if a bid is to be made.
+  repeated SeatBid seatbid = 6;
+}
+
+message SeatBid {
+  // ID of the buyer seat on whose behalf this bid is made.
+  // Recommended by the OpenRTB specification.
+  string seat = 1;
+
+  // Array of 1+ Bid objects each related to an item. Multiple bids can relate to the same item.
+  // Required by the OpenRTB specification.
+  repeated Bid bid = 3;
+}
+
+message Bid {
+  // Bidder generated bid ID to assist with logging/tracking.
+  // Recommended by the OpenRTB specification.
+  string id = 1;
+
+  // ID of the item object in the related bid request; specifically item.id.
+  // Required by the OpenRTB specification.
+  string item = 2;
+
+  // Bid price expressed as CPM although the actual transaction is for a unit item only.
+  // Required by the OpenRTB specification.
+  double price = 3;
+
+  // Pending notice URL called by the exchange when a bid has been declared the winner within
+  // the scope of an OpenRTB compliant supply chain (i.e., there may still be non-compliant
+  // decisioning such as header bidding). Substitution macros may be included.
+  string purl = 7;
+
+  // Billing notice URL called by the exchange when a winning bid becomes billable based on
+  // exchange-specific business policy (e.g., markup rendered). Substitution macros may be
+  // included.
+  string burl = 8;
+
+  // Loss notice URL called by the exchange when a bid is known to have been lost. Substitution
+  // macros may be included. Exchange-specific policy may preclude support for loss notices or
+  // the disclosure of winning clearing prices resulting in ${OPENRTB_PRICE} macros being removed
+  // (i.e., replaced with a zero-length string).
+  string lurl = 9;
+
+  // ID to enable media to be specified by reference if previously uploaded to
+  // the exchange rather than including it by value in the domain objects.
+  string mid = 11;
+
+  // Array of Macro objects that enable bid specific values to be substituted
+  // into markup; especially useful for previously uploaded media referenced via
+  // the mid attribute. Refer to Object: Macro.
+  repeated Macro macro = 12;
+}
+
+message Macro {
+  // Name of a buyer specific macro.
+  string key = 1;
+
+  // Value to substitute for each instance of the macro found in markup.
+  string value = 2;
+}
+
+service OpenRTB {
+  rpc CollectBids(Request) returns (Response);
+}
