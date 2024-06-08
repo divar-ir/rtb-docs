@@ -12,6 +12,11 @@ message Request {
   // Required by the OpenRTB specification.
   string id = 1;
 
+  // Restriction list of buyer seats for bidding on this item. Knowledge of
+  // buyer’s customers and their seat IDs must be coordinated between parties a
+  // priori. Omission implies no restrictions.
+  repeated string seat = 6;
+
   // Array of Item objects (at least one) that constitute the set of goods being offered for sale.
   // Required by the OpenRTB specification.
   repeated Item item = 10;
