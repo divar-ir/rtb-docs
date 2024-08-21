@@ -126,7 +126,7 @@ message Context {
                 "value": "150000000"
               },
               {
-                "id": "filter-poduction-year-min",
+                "id": "filter-production-year-min",
                 "name": "production year min filter",
                 "value": "1399"
               },
@@ -158,7 +158,7 @@ message Context {
     - filter-neighborhood محله انتخاب شده
     - filter-price-min حداقل قیمت انتخاب شده
     - filter-price-max حداکثر قیمت انتخاب شده
-    - filter-poduction-year-min حداقل سال تولید
+    - filter-production-year-min حداقل سال تولید
     - filter-production-year-max حداکثر سال تولید
     - filter-status وضعیت کالا (دارای مقادیر new, like-new, used, repair-needed)
 - تناظر آی‌دی شهر به نام شهر در [این آدرس](https://api.divar.ir/v8/places/cities) قابل مشاهده است.
