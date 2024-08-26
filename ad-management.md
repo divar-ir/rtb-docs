@@ -6,12 +6,12 @@
 ## فهرست Endpointها
 در این قسمت فهرست endpointهایی که برای این سامانه وجود دارد تعریف شده است. تمامی endpointها مطابق اسناد [Ad Management API](https://github.com/InteractiveAdvertisingBureau/AdManagementAPI/blob/master/Ad%20Management%20API%20v1.md) و [AdCOM](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md) می‌باشند. برای اسکیمای ad در درخواست‌ها و پاسخ‌ها می‌توانید از پروتوی [adcom](https://github.com/divar-ir/rtb-docs/tree/main/proto/adcom/v1) استفاده کنید.
 
+برای همگام سازی سامانه مدیریت آگهی خود با سامانه مدیریت بنر‌های دیوار می‌توانید از روش ارائه شده در [اینجا](https://github.com/InteractiveAdvertisingBureau/AdManagementAPI/blob/master/Ad%20Management%20API%20v1.md#typical-synchronization-flow-) استفاده کنید. برای این کار شما باید در فواصل زمانی مشخص API دریافت اطلاعات بنر‌ها را با فیلتر audit_start صدا بزنید. مقدار audit_start باید audit.lastmod آخرین Ad از آخرین اجرای API باشد.
+
 متغیر‌ها:
   - baseUrl: مثدار ثابت https://api.divar.ir/ad-management
   - bidderId: شناسه آگهی گزار
-  - id: شناسه بنر
- 
- 
+  - id: شناسه بنر 
  
 | Endpoint                            | Method | توضیحات             |
 |-------------------------------------|--------|---------------------|
@@ -29,7 +29,7 @@
 <div dir="ltr">
 
 ``` http
-GET {baseUrl}/bidder/{bidderId}/ads?qp1={} HTTP/1.1
+GET {baseUrl}/bidder/{bidderId}/ads?audit_start={auditStart} HTTP/1.1
 Accept: application/json
 X-API-KEY: {api_key}
 
