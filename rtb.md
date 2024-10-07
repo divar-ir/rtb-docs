@@ -266,12 +266,17 @@ message Macro {
 دلیل باخت در مزایده در ماکروی {OPENRTB\_LOSS}\$ در lurl جایگزین می‌شود. برای مثال می‌توانید در پاسخ خود lurl را برابر https://loss.reason/?lr=${OPENRTB_LOSS} قرار دهید و انتظار صدا زده شدن آدرس به این صورت را داشته باشید: https://loss.reason/?lr=2.
 #### دلایل باخت
 دلایل باخت مبتنی بر [دلایل باخت استاندارد OpenRTB](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/main/OpenRTB%20v3.0%20FINAL.md#list--loss-reason-codes-) تنظیم شده‌اند. دلایل باخت فعلی سیستم به شرح زیر هستند:
+
+دلایل باخت عمومی:
 - 3: Invalid Bid Response
 - 100: Bid was Below Auction Floor
 - 102: Lost to Higher Bid
 - 200: Creative Filtered - General; Reason Unknown
 - 201: Creative Pending
-- 202: Creative Disapproved
+- 202: Creative Disapproved-
+
+دلایل باخت مختص مزایده دیوار:
+- 501: Auction Ignored
 
 
 ### نمونه پاسخ ارسالی به درخواست دیوار
