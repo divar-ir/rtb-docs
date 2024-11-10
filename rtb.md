@@ -73,7 +73,7 @@ message Context {
   "id": "random-request-id",
   "item": [
     {
-      "id": "random-request-id",
+      "id": "random-item-id",
       "flr": 300,
       "spec": {
         "display": {
@@ -299,7 +299,7 @@ message Macro {
       "bid": [
         {
           "id": "random-bid-id",
-          "item": "item-id",
+          "item": "random-item-id",
           "price": 5000,
           "mid": "your-media_id",
           "macro": [
