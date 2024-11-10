@@ -49,6 +49,8 @@ message Item {
 ```
 <div dir="rtl">
 
+اطلاعاتی مانند صفحه درخواست و آفست بنر در لیست دیوار در spec قرار دارند.
+
 ### ‫مضمون تبلیغات (Context)
 <div dir="ltr">
 
@@ -73,7 +75,15 @@ message Context {
     {
       "id": "random-request-id",
       "flr": 300,
-      "spec": {}
+      "spec": {
+        "display": {
+          "ext": {
+            "@type": "type.googleapis.com/ad_auction.DivarListDisplayPlacementExtension",
+            "page": 0,
+            "offset": 4
+          }
+        }
+      }
     }
   ],
   "context": {
@@ -289,7 +299,7 @@ message Macro {
       "bid": [
         {
           "id": "random-bid-id",
-          "item": "random-request-id",
+          "item": "item-id",
           "price": 5000,
           "mid": "your-media_id",
           "macro": [
