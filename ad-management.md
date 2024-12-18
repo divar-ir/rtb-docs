@@ -531,6 +531,3 @@ Content-Length:
 ### حسابرسی لینک‌های دیوار
 برای لینک‌های دیوار موارد زیر باید در نظر گرفته شود. باید توجه شود که اگر از این لینک‌ها به صورت مستقیم استفاده شود، این کار در زمان نمایش  خودکار انجام می‌شود و نیازی به تغییر نیست و در صورت استفاده از لینک‌هایی که به این‌ها ریدایرکت می‌شوند، این تغییرات الزامی هستند.
 - به جای لینک‌ پست‌ها (https://divar.ir/v/[TOKEN]) باید از https://a-banners.divar.ir/redirect/v/[TOKEN] استفاده شود.
-- به جای لینک‌ فروشگاه‌های دیوار (https://divar.ir/marketplace/stores/[TOKEN]) باید از https://a-banners.divar.ir/redirect/store/[TOKEN] استفاده شود.
-- به جای لینک‌ نمایشگاه‌های خودرو دیوار(https://divar.ir/car/dealers/[OKEN]) باید از https://a-banners.divar.ir/redirect/car/[TOKEN] استفاده شود.
-- به جای لینک آژانس‌های املاک دیوار (https://divar.ir/real-estate/agencies/[TOKEN]) باید از https://a-banners.divar.ir/redirect/real-estate/[TOKEN] استفاده شود.
