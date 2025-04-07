@@ -148,6 +148,8 @@ Content-Length:
 
 ### ساخت بنر جدید
 
+#### بنر نیتیو 
+ 
 <div dir="ltr">
 
 ``` http
@@ -161,7 +163,7 @@ X-API-KEY: {api_key}
             "link": {
                 "url": "https://example.org/url",
                 "trkr": [
-                    "http://example.org/tracker"
+                    "https://example.org/tracker"
                 ]
             },
             "asset": [
@@ -209,7 +211,7 @@ X-API-KEY: {api_key}
             },
             {
                 "type": 2,
-                "url": "http://dummy-rtb.ads:8000/impression/2?${AUCTION_PRICE}"
+                "url": "https://example.org/impression/2?${AUCTION_PRICE}"
             },
             {
                 "type": 4,
@@ -235,7 +237,7 @@ Content-Length:
                     "link": {
                         "url": "https://example.org/url",
                         "trkr": [
-                            "http://example.org/tracker"
+                            "https://example.org/tracker"
                         ]
                     },
                     "asset": [
@@ -292,6 +294,114 @@ Content-Length:
                 "feedback": [
                     "لینک معتبر نیست"
                 ],
+                "init": "1724084590878",
+                "lastmod": "1724507106939"
+            }
+        }
+    ]
+}
+```
+
+<div dir="rtl">
+
+#### بنر بک‌گراندی
+
+توجه کنید که ابعاد بنر ارسالی باید مطابق موارد تعیین شده باشد.
+
+<div dir="ltr">
+
+``` http
+POST {baseUrl}/bidder/{bidderId}/ads HTTP/1.1
+Accept: application/json
+X-API-KEY: {api_key}
+
+{
+    "display": {
+        "w": 1075,
+        "h": 1584,
+        "banner": {
+            "img": "https://example.org/banner-image",
+            "link": {
+                "url": "https://example.org/url",
+                "trkr": [
+                    "https://example.org/tracker"
+                ]
+            }
+        },
+        "event": [
+            {
+                "type": 1,
+                "url": "https://example.org/loaded"
+            },
+            {
+                "type": 2,
+                "url": "https://example.org/impression"
+            },
+            {
+                "type": 2,
+                "url": "https://example.org/impression/2?${AUCTION_PRICE}"
+            },
+            {
+                "type": 4,
+                "url": "https://example.org/mrc100"
+            }
+        ]
+    }
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length:
+
+{
+    "count": 1,
+    "ads": [
+        {
+            "id": "id",
+            "init": "1724084590878",
+            "lastmod": "1724507106939",
+            "display": {
+                 "w": 1075,
+                 "h": 1584,
+                "banner": {
+                    "img": "https://example.org/banner-image",
+                    "link": {
+                        "url": "https://example.org/url",
+                        "trkr": [
+                            "https://example.org/tracker"
+                        ],
+                        "ext": {
+                            "@type": "type.googleapis.com/admanagement.LinkAssetExtension"
+                        }
+                    },
+                    "ext": {
+                        "@type": "type.googleapis.com/admanagement.BannerExtension",
+                        "img_public": "https://a-banners.divarcdn.com/public-image",
+                        "img_public_with_badge": "https://a-banners.divarcdn.com/public-image-with-badge",
+                        "type": "BANNER_TYPE_IMAGE"
+                    }
+                },
+                "event": [
+                    {
+                        "type": 1,
+                        "url": "https://example.org/loaded"
+                    },
+                    {
+                        "type": 2,
+                        "url": "https://example.org/impression"
+                    },
+                    {
+                        "type": 2,
+                        "url": "http://example.org/impression/2?${AUCTION_PRICE}"
+                    },
+                    {
+                        "type": 4,
+                        "url": "https://example.org/mrc100"
+                    }
+                ]
+            },
+            "audit": {
+                "status": 3,
                 "init": "1724084590878",
                 "lastmod": "1724507106939"
             }
@@ -374,15 +484,16 @@ Content-Length:
 
 <div dir="rtl">
 
-
 ### به روز رسانی بنر
 
 توجه کنید که برای این درخواست باید همه فیلد‌ها ارسال شوند و در غیر این صورت فیلد‌های ارسال نشده پاک می‌شوند.
 
+#### بنر نیتیو
+
 <div dir="ltr">
 
 ``` http
-PUT {baseUrl}/bidder/{bidderId}/ads/{id}
+PUT {baseUrl}/bidder/{bidderId}/ads/{id} HTTP/1.1
 Accept: application/json
 X-API-KEY: {api_key}
 
@@ -484,6 +595,114 @@ Content-Length:
                 "status": 3,
                 "init": "1711528034170",
                 "lastmod": "1721479608368"
+            }
+        }
+    ]
+}
+```
+
+<div dir="rtl">
+
+#### بنر بک‌گراندی
+
+توجه کنید که ابعاد بنر ارسالی باید مطابق موارد تعیین شده باشد.
+
+<div dir="ltr">
+
+``` http
+PUT {baseUrl}/bidder/{bidderId}/ads/{id} HTTP/1.1
+Accept: application/json
+X-API-KEY: {api_key}
+
+{
+    "display": {
+        "w": 1075,
+        "h": 1584,
+        "banner": {
+            "img": "https://example.org/banner-image",
+            "link": {
+                "url": "https://example.org/url",
+                "trkr": [
+                    "https://example.org/tracker"
+                ]
+            }
+        },
+        "event": [
+            {
+                "type": 1,
+                "url": "https://example.org/loaded"
+            },
+            {
+                "type": 2,
+                "url": "https://example.org/impression"
+            },
+            {
+                "type": 2,
+                "url": "https://example.org/impression/2?${AUCTION_PRICE}"
+            },
+            {
+                "type": 4,
+                "url": "https://example.org/mrc100"
+            }
+        ]
+    }
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length:
+
+{
+    "count": 1,
+    "ads": [
+        {
+            "id": "id",
+            "init": "1724084590878",
+            "lastmod": "1724507106939",
+            "display": {
+                 "w": 1075,
+                 "h": 1584,
+                "banner": {
+                    "img": "https://example.org/banner-image",
+                    "link": {
+                        "url": "https://example.org/url",
+                        "trkr": [
+                            "https://example.org/tracker"
+                        ],
+                        "ext": {
+                            "@type": "type.googleapis.com/admanagement.LinkAssetExtension"
+                        }
+                    },
+                    "ext": {
+                        "@type": "type.googleapis.com/admanagement.BannerExtension",
+                        "img_public": "https://a-banners.divarcdn.com/public-image",
+                        "img_public_with_badge": "https://a-banners.divarcdn.com/public-image-with-badge",
+                        "type": "BANNER_TYPE_IMAGE"
+                    }
+                },
+                "event": [
+                    {
+                        "type": 1,
+                        "url": "https://example.org/loaded"
+                    },
+                    {
+                        "type": 2,
+                        "url": "https://example.org/impression"
+                    },
+                    {
+                        "type": 2,
+                        "url": "http://example.org/impression/2?${AUCTION_PRICE}"
+                    },
+                    {
+                        "type": 4,
+                        "url": "https://example.org/mrc100"
+                    }
+                ]
+            },
+            "audit": {
+                "status": 3,
+                "init": "1724084590878",
+                "lastmod": "1724507106939"
             }
         }
     ]
