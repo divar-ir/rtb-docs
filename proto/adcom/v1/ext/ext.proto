@@ -10,9 +10,16 @@ enum DivarListPresentationStyle {
   PRESENTATION_STYLE_FULL_WIDTH_STICKY = 2;
 }
 
+enum DivarListContentType {
+  DIVAR_LIST_CONTENT_TYPE_UNSPECIFIED = 0;
+  DIVAR_LIST_CONTENT_TYPE_IMAGE = 1;
+  DIVAR_LIST_CONTENT_TYPE_LOTTIE = 2;
+}
+
 message DivarListDisplayPlacementExtension {
   int32 page = 1;
   int32 offset = 2;
 
   DivarListPresentationStyle presentation_style = 3;
+  repeated DivarListContentType content_types = 4;
 }
