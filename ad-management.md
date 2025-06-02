@@ -24,7 +24,7 @@
 برای احراز هویت باید از کلید‌های API حساب [کنار دیوار](https://divar.ir/kenar) در هدر X-API-KEY استفاده کنید.
 
 ## مثال‌ها
-### دریافت اطلاعات بنر ها
+### دریافت اطلاعات آگهی‌ها
 
 <div dir="ltr">
 
@@ -146,9 +146,9 @@ Content-Length:
 
 <div dir="rtl"> 
 
-### ساخت بنر جدید
+### ساخت آگهی جدید
 
-#### بنر نیتیو 
+#### آگهی نیتیو 
  
 <div dir="ltr">
 
@@ -304,7 +304,7 @@ Content-Length:
 
 <div dir="rtl">
 
-#### بنر بک‌گراندی
+#### آگهی بنر
 
 توجه کنید که ابعاد بنر ارسالی باید مطابق موارد تعیین شده باشد.
 
@@ -326,6 +326,10 @@ X-API-KEY: {api_key}
                 "trkr": [
                     "https://example.org/tracker"
                 ]
+            },
+            "ext": {
+                "@type": "type.googleapis.com/admanagement.BannerExtension",
+                "type": "BANNER_TYPE_IMAGE"
             }
         },
         "event": [
@@ -412,7 +416,7 @@ Content-Length:
 
 <div dir="rtl"> 
 
-### دریافت اطلاعات بنر
+### دریافت اطلاعات آگهی
 
 <div dir="ltr">
 
@@ -484,11 +488,11 @@ Content-Length:
 
 <div dir="rtl">
 
-### به روز رسانی بنر
+### به روز رسانی آگهی
 
 توجه کنید که برای این درخواست باید همه فیلد‌ها ارسال شوند و در غیر این صورت فیلد‌های ارسال نشده پاک می‌شوند.
 
-#### بنر نیتیو
+#### آگهی نیتیو
 
 <div dir="ltr">
 
@@ -603,7 +607,7 @@ Content-Length:
 
 <div dir="rtl">
 
-#### بنر بک‌گراندی
+#### آگهی بنر
 
 توجه کنید که ابعاد بنر ارسالی باید مطابق موارد تعیین شده باشد.
 
@@ -710,6 +714,10 @@ Content-Length:
 ```
 
 <div dir="rtl">
+
+### نکات
+- برای بنر‌های متحرک و بکگراندی نمی‌توان از apiهای نیتیو استفاده کرد.
+- برای بنر‌های متحرک، مقدار display.banner.ext باید BANNER_TYPE_LOTTIE باشد.
 
 ## وضعیت حسابرسی (Audit Status)
 هر آگهی یک از [وضعیت‌](https://github.com/InteractiveAdvertisingBureau/AdCOM/blob/main/AdCOM%20v1.0%20FINAL.md#list--audit-status-codes-) های زیر را می‌تواند داشته باشد:
